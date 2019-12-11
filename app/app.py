@@ -13,7 +13,7 @@ from dash.dependencies import Input, Output, State
 import pandas as pd
 from Bio import Entrez
 import string
-import nltk
+#import nltk
 from collections import Counter
 from plotly.offline import plot
 import plotly.graph_objects as go
@@ -124,8 +124,8 @@ def get_pages(xml_data):
         #    pagesList.append('empty')
     return pagesList 
 
-stopwords = nltk.corpus.stopwords.words('english')
-myStopWords = ['empty','association', 'associated', 'study', 'studies', 'task', 'may', 'effect', 
+#stopwords = nltk.corpus.stopwords.words('english')
+stopwords = ['empty','association', 'associated', 'study', 'studies', 'task', 'may', 'effect', 
                'results', 'high', 'higher', 'low', 'lower', 'participants', 'findings',
                'related', 'however', 'findings', '=', 'also', 'levels', 'research', 'use',
                'whether', 'effects', 'differences', 'among', 'using', 'two', 'important',
@@ -135,7 +135,7 @@ myStopWords = ['empty','association', 'associated', 'study', 'studies', 'task', 
                'skills', 'significantly', 'greater', 'suggest', 'suggests', 'less', 'reduced',
                'one', 'would', 'many', 'r', 'three', 'two', 'large', 'paper', 'e.g.',
                'showed', '1', '2']
-stopwords.extend(myStopWords)
+#stopwords.extend(myStopWords)
 
 colors = ['#FFCDB2', '#E8A494', '#E5989B', '#B5838D', '#6D6875']
 
