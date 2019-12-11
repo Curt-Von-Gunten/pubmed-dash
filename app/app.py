@@ -23,7 +23,7 @@ import flask
 
 external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap-grid.min.css']
 server = flask.Flask(__name__)
-app = dash.Dash(__name__, server=server, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, server=server, url_base_pasthname = '/app', external_stylesheets=external_stylesheets)
 
 def get_keywords(xml_data):
         kewWordList = []
