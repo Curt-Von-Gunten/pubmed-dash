@@ -17,12 +17,13 @@ import nltk
 from collections import Counter
 from plotly.offline import plot
 import plotly.graph_objects as go
+from flask import Flask
 
 #df = pd.read_csv('C:/Users/Curt/Box Sync/Data Science/PubMed Project/Output/selfcontrol_test.txt')
 
 external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap-grid.min.css']
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = Flask(__name__)
+app = dash.Dash(__name__, server=app ,external_stylesheets=external_stylesheets)
 
 def get_keywords(xml_data):
         kewWordList = []
@@ -408,6 +409,17 @@ def graph_author(jsonified_cleaned_data):
             'showlegend': False,
             }
         }
-        
+
+###other app setup code, i.e., the flask wrapper for the dash app###
+@server.route('/')
+def index():
+    return '''
+<html>
+<div>
+    <h1>Flask App</h1>
+</div>
+</html>
+'''
+
 if __name__ == '__main__':
     app.run_server(debug=True)
