@@ -17,13 +17,13 @@ import nltk
 from collections import Counter
 from plotly.offline import plot
 import plotly.graph_objects as go
-from flask import Flask
+import flask
 
 #df = pd.read_csv('C:/Users/Curt/Box Sync/Data Science/PubMed Project/Output/selfcontrol_test.txt')
 
 external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap-grid.min.css']
-app = Flask(__name__)
-app = dash.Dash(__name__, server=app ,external_stylesheets=external_stylesheets)
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server, external_stylesheets=external_stylesheets)
 
 def get_keywords(xml_data):
         kewWordList = []
